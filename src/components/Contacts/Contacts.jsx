@@ -1,5 +1,7 @@
 import { customAlphabet } from 'nanoid';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { ContactList } from './ContactList';
 import { ContactForm } from './ContactForm';
 import { Filter } from './Filter';
@@ -7,6 +9,18 @@ import { Filter } from './Filter';
 const nanoid = customAlphabet('1234567890id', 4);
 
 export class Contacts extends Component {
+  static propTypes = {
+    contacts: PropTypes.arrayOf(
+      PropTypes.exact({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+      }).isRequired
+    ).isRequired,
+    filter: PropTypes.string.isRequired,
+    onSearch: PropTypes.func.isRequired,
+  };
+
   state = {
     contacts: this.props.contacts,
     name: '',

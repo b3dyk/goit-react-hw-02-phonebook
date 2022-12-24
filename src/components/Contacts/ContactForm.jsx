@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const ContactForm = ({ name, number, onSubmit, onChange }) => {
   return (
@@ -32,4 +33,11 @@ export const ContactForm = ({ name, number, onSubmit, onChange }) => {
       <button type="submit">Add contact</button>
     </form>
   );
+};
+
+ContactForm.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
