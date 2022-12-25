@@ -17,7 +17,7 @@ export const Filter = ({ filter, onSearch }) => {
       <Input
         type="text"
         name="search"
-        placeholder="Search"
+        placeholder="Search by name"
         value={filter}
         onChange={onSearch}
       />
