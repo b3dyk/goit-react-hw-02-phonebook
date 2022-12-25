@@ -1,18 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const List = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 500px;
+`;
+const Item = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+`;
+
+const Text = styled.p`
+  margin: 0;
+`;
+const Button = styled.button`
+  width: 100px;
+  height: 30px;
+  background-color: #ff6242;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  color: white;
+  margin-left: auto;
+`;
 
 export const ContactList = ({ contacts, onDelete }) => {
   return (
-    <ul>
+    <List>
       {contacts.map(({ id, name, number }) => (
-        <li key={id}>
-          {name}: {number}
-          <button type="button" onClick={() => onDelete(id)}>
+        <Item key={id}>
+          <Text>
+            {name}: {number}
+          </Text>
+          <Button type="button" onClick={() => onDelete(id)}>
             Delete
-          </button>
-        </li>
+          </Button>
+        </Item>
       ))}
-    </ul>
+    </List>
   );
 };
 

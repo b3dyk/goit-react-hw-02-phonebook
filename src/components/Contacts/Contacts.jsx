@@ -5,6 +5,22 @@ import PropTypes from 'prop-types';
 import { ContactList } from './ContactList';
 import { ContactForm } from './ContactForm';
 import { Filter } from './Filter';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 16px;
+`;
+
+const MainHeading = styled.h1`
+  margin: 0;
+  margin-bottom: 16px;
+`;
+
+const Heading = styled.h2`
+  margin: 0;
+  margin-bottom: 16px;
+`;
 
 const nanoid = customAlphabet('1234567890id', 4);
 
@@ -65,8 +81,8 @@ export class Contacts extends Component {
       name.toLowerCase().includes(filter)
     );
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <Wrapper>
+        <MainHeading>Phonebook</MainHeading>
         <ContactForm
           name={name}
           number={number}
@@ -74,12 +90,12 @@ export class Contacts extends Component {
           onChange={this.handleChange}
         />
 
-        <h2>Contacts</h2>
+        <Heading>Contacts</Heading>
 
         <Filter filter={filter} onSearch={onSearch} />
 
         <ContactList contacts={visibleContacts} onDelete={this.handleDelete} />
-      </div>
+      </Wrapper>
     );
   }
 }
