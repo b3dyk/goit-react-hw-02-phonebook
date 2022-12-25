@@ -35,6 +35,7 @@ const Button = styled.button`
   border-radius: 4px;
   font-family: inherit;
   color: white;
+  cursor: pointer;
 `;
 
 export const ContactForm = ({ name, number, onSubmit, onChange }) => {

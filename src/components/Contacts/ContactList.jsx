@@ -27,6 +27,7 @@ const Button = styled.button`
   font-family: inherit;
   color: white;
   margin-left: auto;
+  cursor: pointer;
 `;
 
 export const ContactList = ({ contacts, onDelete }) => {
