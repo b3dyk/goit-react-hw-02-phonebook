@@ -25,11 +25,15 @@ export class App extends Component {
       ...data,
     };
 
-    this.state.contacts.find(({ name }) => name === data.name)
-      ? alert(`${data.name} already in contacts`)
-      : this.setState(prevState => ({
-          contacts: [...prevState.contacts, newContact],
-        }));
+    if (this.state.contacts.find(({ name }) => name === data.name)) {
+      alert(`${data.name} already in contacts`);
+      return true;
+    }
+
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, newContact],
+    }));
+    return;
   };
 
   handleDelete = id => {
